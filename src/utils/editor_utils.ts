@@ -163,10 +163,10 @@ export function forceEndComposition(view: EditorView) {
 	parent.insertBefore(view.scrollDOM, sibling);
 	try {
 		if (savedSelection && selection) {
-		selection.setPosition(savedSelection.anchorNode, savedSelection.anchorOffset);
-		if (savedSelection.focusNode) {
-			selection.extend(savedSelection.focusNode, savedSelection.focusOffset);
-		}
+			selection.setPosition(savedSelection.anchorNode, savedSelection.anchorOffset);
+			if (savedSelection.focusNode) {
+				selection.extend(savedSelection.focusNode, savedSelection.focusOffset);
+			}
 		}
 	} catch(e) {
 		console.error(e);
