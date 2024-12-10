@@ -32,9 +32,7 @@ let lastKeyboardEvent: KeyboardEvent | null = null;
 let useNextTextInput = false;
 
 export const onInput = (view: EditorView, from: number, to: number, text: string) => {
-	if (text === "\0\0") {
-		return true;
-	}
+	if (text === "\0\0") return true;
 	if (text.length == 1 && useNextTextInput) {
 		if (text === "\t") text = "Tab";
 		const success = handleKeydown(
