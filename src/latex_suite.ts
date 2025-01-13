@@ -32,6 +32,7 @@ let lastKeyboardEvent: KeyboardEvent | null = null;
 let useNextTextInput = false;
 
 export const onInput = (view: EditorView, from: number, to: number, text: string) => {
+	console.log("onInput from `" + from + "` to `" + to + "` text `" + text + "`" );
 	if (text === "\0\0") return true;
 	if (text.length == 1 && useNextTextInput) {
 		if (text === "\t") text = "Tab";
@@ -51,6 +52,7 @@ export const onInput = (view: EditorView, from: number, to: number, text: string
 
 export const onKeydown = (event: KeyboardEvent, view: EditorView) => {
 	// the input event handler `onInput` will try to handle the unknown key.
+	console.log("onKeydown key `" + event.key + "`");
     if (event.key == "Unidentified" || event.key == "Process" || event.key == "Dead") {
         useNextTextInput = true;
 		lastKeyboardEvent = event;
